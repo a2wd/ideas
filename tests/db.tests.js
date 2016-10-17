@@ -95,7 +95,7 @@ describe("database", function(){
 		after(function(){
 			db.close
 		})
-
+		
 	})
 
 })
