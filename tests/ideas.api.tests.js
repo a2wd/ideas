@@ -7,15 +7,17 @@ var title = "test title [" + Date.now() + "]"
 var test_idea = new Idea(title, "test description", ["test comment"])
 
 describe("ideas db-api", function(){
-	it("should have a non-negative number of entries", function(){
+	it("should have a non-negative number of entries", function(done){
 		//Arrange
 		//Not needed
 
 		//Act
-		var idea_count = ideasApi.count()
+		var idea_count = ideasApi.count(function(count){
 
-		//Assert
-		assert(idea_count > -1)
+			//Assert
+			assert(count > -1)
+			done()
+		})
 	})
 
 	it("should be able to insert an idea object", function(){
